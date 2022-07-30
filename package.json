@@ -1,0 +1,26 @@
+{
+  "name": "r3vids",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "server": "nodemon app.js",
+        "client": "npm start --prefix client",
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Boynton",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^7.3.0",
+    "cors": "^2.8.5",
+    "directory-tree": "^3.3.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0"
+  }
+}
