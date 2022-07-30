@@ -2,9 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const path = require("path");
-const videoList = require("./controllers/videoList");
-const randomVideo = require("./controllers/randomVideo");
-const index = require("./controllers/index");
+const videoList = require("./routes/videoList");
+const randomVideo = require("./routes/randomVideo");
+const index = require("./routes/index");
 
 dotenv.config();
 
