@@ -1,10 +1,8 @@
 const { Router } = require("express");
-const videos = require("../utils/getVideos");
+const videoListController = require("../controllers/videoListController");
 
 const router = Router();
 
-router.get("/list", (req, res) => {
-	res.send(videos);
-});
+router.get("/list", videoListController);
 
 module.exports = router;
