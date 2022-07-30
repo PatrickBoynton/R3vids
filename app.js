@@ -5,12 +5,15 @@ const path = require("path");
 const videoList = require("./routes/videoList");
 const randomVideo = require("./routes/randomVideo");
 const index = require("./routes/index");
+const sequelize = require("./utils/database");
 
 dotenv.config();
 
 const app = express();
 
 app.use(cors());
+
+sequelize.sync();
 
 app.use(express.json());
 
