@@ -1,9 +1,17 @@
-const videos = require("../utils/getVideos");
 const Video = require("../models/video");
+const videos = require("../utils/getVideos");
 
-const videoListController = (req, res) => {
-	videos.forEach((video) => Video.create({ path: video, hasPlayed: false }));
-	res.send(videos);
+const videoListController = async (req, res) => {
+	const videosFromDb = await Video.findAll({ attributes: ["path"] });
+	let vids = [];
+
+	videosFromDb.map((video) => vids.push(video.path));
+
+	if (vids.length > 0) {
+		res.send(vids);
+	} else {
+		res.send(videos);
+	}
 };
 
 module.exports = videoListController;
