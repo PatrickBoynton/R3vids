@@ -12,9 +12,11 @@ const randomVideoController = async (req, res) => {
 
 	if (randVid === "") {
 		res.send(randomVideo);
-	}
+	} else {
+		res.send(randVid[0].path);
 
-	res.send(randVid[0].path);
+		Video.update({ hasPlayed: true }, { where: { path: randVid[0].path } });
+	}
 };
 
 module.exports = randomVideoController;
