@@ -5,6 +5,7 @@ const path = require("path");
 const videoList = require("./routes/videoList");
 const randomVideo = require("./routes/randomVideo");
 const createVideoList = require("./routes/createVideoList");
+const videoDetails = require("./routes/videoDetails");
 const index = require("./routes/index");
 const sequelize = require("./utils/database");
 
@@ -27,6 +28,8 @@ app.use("/Video", randomVideo);
 app.use("/Video", videoList);
 
 app.use("/Video", createVideoList);
+
+app.use("/Video", videoDetails);
 
 app.use("/", index);
 
