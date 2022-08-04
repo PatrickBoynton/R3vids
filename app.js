@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const videoList = require("./routes/videoList");
 const randomVideo = require("./routes/randomVideo");
+const createVideoList = require("./routes/createVideoList");
 const index = require("./routes/index");
 const sequelize = require("./utils/database");
 
@@ -24,6 +25,8 @@ app.use(express.static(path.join(__dirname, "./client/build")));
 app.use("/Video", randomVideo);
 
 app.use("/Video", videoList);
+
+app.use("/Video", createVideoList);
 
 app.use("/", index);
 
