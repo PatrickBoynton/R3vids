@@ -7,16 +7,18 @@
     "server": "nodemon app.js",
     "client": "npm start --prefix client",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./utils/getVideos.test.js"
   },
   "author": "Patrick Boynton",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.27.2",
     "concurrently": "^7.3.0",
     "cors": "^2.8.5",
     "directory-tree": "^3.3.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "mocha": "^10.0.0",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
