@@ -6,6 +6,8 @@ const randomVideoController = async (req, res) => {
 	const randVid = await Video.findAll({
 		order: Sequelize.literal("rand()"),
 		limit: 1,
+		benchmark: true,
+		logging: console.log,
 	});
 
 	const randomVideo = videos[Math.round(Math.random() * videos.length)];
