@@ -6,6 +6,7 @@ const videoList = require("./routes/videoList");
 const randomVideo = require("./routes/randomVideo");
 const createVideoList = require("./routes/createVideoList");
 const videoDetails = require("./routes/videoDetails");
+const updateRating = require("./routes/updateRating");
 const index = require("./routes/index");
 const sequelize = require("./utils/database");
 
@@ -19,9 +20,13 @@ sequelize.sync();
 
 app.use(express.json());
 
+console.log(process.env.NODE_ENV);
+
 app.use("/Video", express.static("D:\\Extras\\"));
 
 app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.use("/Video", updateRating);
 
 app.use("/Video", randomVideo);
 
