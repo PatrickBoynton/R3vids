@@ -2,7 +2,11 @@ const Video = require("../models/video");
 const videos = require("../utils/getVideos");
 
 const videoListController = async (req, res) => {
-	const videosFromDb = await Video.findAll({ attributes: ["path"] });
+	const videosFromDb = await Video.findAll({
+		benchmark: true,
+		logging: console.log,
+		attributes: ["path"],
+	});
 	let vids = [];
 
 	videosFromDb.map((video) => vids.push(video.path));
