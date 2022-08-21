@@ -16,6 +16,10 @@ const Video = sequelize.define("video", {
 		type: INTEGER,
 		allowNull: true,
 	},
+	type: {
+		type: STRING,
+		allowNull: true,
+	},
 	hasPlayed: {
 		type: BOOLEAN,
 		allowNull: false,
