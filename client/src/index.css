@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: #7070ef;
+    color: white;
+}
+
+button {
+    color: #383879 !important;
+    border-bottom: 2px solid #383879 !important;
+}
+
+input {
+    margin-left: 30px;
+}
