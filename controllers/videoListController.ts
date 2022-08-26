@@ -1,5 +1,5 @@
-const Video = require("../models/video");
-const videos = require("../utils/getVideos");
+import Video from "../models/video";
+import videos from "../utils/getVideos";
 
 const videoListController = async (req, res) => {
 	const videosFromDb = await Video.findAll({
@@ -18,4 +18,4 @@ const videoListController = async (req, res) => {
 	}
 };
 
-module.exports = videoListController;
+export default videoListController;

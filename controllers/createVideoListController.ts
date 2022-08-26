@@ -1,5 +1,5 @@
-const videos = require("../utils/getVideos");
-const Video = require("../models/video");
+import videos from "../utils/getVideos";
+import Video from "../models/video";
 
 const createVideoListController = (req, res) => {
 	videos.forEach((video) => Video.create({ path: video, hasPlayed: false }));
@@ -11,4 +11,4 @@ const createVideoListController = (req, res) => {
 	}
 };
 
-module.exports = createVideoListController;
+export default createVideoListController;

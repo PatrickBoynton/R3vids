@@ -1,5 +1,5 @@
-const { Router } = require("express");
-const Video = require("../models/video");
+import { Router } from "express";
+import Video from "../models/video";
 
 const router = Router();
 
@@ -8,4 +8,4 @@ router.get("/sort/", async (req, res) => {
 	res.send(videos);
 });
 
-module.exports = router;
+export default router;

@@ -1,4 +1,4 @@
-const Video = require("../models/video");
+import Video from "../models/video";
 
 const updateRatingController = async (req, res) => {
 	const { path } = req.body;
@@ -9,4 +9,4 @@ const updateRatingController = async (req, res) => {
 	res.status(204).send({ message: "Updated video" });
 };
 
-module.exports = updateRatingController;
+export default updateRatingController;

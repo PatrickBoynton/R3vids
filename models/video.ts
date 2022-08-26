@@ -1,5 +1,5 @@
-const sequelize = require("../utils/database");
-const { INTEGER, STRING, BOOLEAN } = require("sequelize");
+import sequelize from "../utils/database";
+import { INTEGER, STRING, BOOLEAN } from "sequelize";
 
 const Video = sequelize.define("video", {
 	id: {
@@ -26,4 +26,4 @@ const Video = sequelize.define("video", {
 	},
 });
 
-module.exports = Video;
+export default Video;

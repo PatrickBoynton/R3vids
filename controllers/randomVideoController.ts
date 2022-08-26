@@ -1,5 +1,5 @@
-const Video = require("../models/video");
-const { Sequelize } = require("sequelize");
+import Video from "../models/video";
+import { Sequelize } from "sequelize";
 
 const randomVideoController = async (req, res) => {
 	const randVid = await Video.findAll({
@@ -13,4 +13,4 @@ const randomVideoController = async (req, res) => {
 	Video.update({ hasPlayed: true }, { where: { path: randVid[0].path } });
 };
 
-module.exports = randomVideoController;
+export default randomVideoController;

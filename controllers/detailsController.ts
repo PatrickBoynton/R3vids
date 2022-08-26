@@ -1,4 +1,4 @@
-const Video = require("../models/video");
+import Video from "../models/video";
 
 const detailsController = async (req, res) => {
 	const { id } = req.params;
@@ -7,4 +7,4 @@ const detailsController = async (req, res) => {
 	res.send(video);
 };
 
-module.exports = detailsController;
+export default detailsController;

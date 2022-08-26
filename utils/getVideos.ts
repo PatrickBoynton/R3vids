@@ -1,5 +1,5 @@
-const directoryTree = require("directory-tree");
-const displayPath = require("./displayPath");
+import directoryTree from "directory-tree";
+import displayPath from "./displayPath";
 
 const tree = directoryTree("D:\\Extras\\");
 
@@ -7,4 +7,4 @@ const videos = tree.children
 	.filter((child) => child.name.endsWith(".mp4"))
 	.map((child) => displayPath + child.name);
 
-module.exports = videos;
+export default videos;
