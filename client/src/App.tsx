@@ -20,7 +20,7 @@ const App = () => {
       <Grid container>
         <Grid xs={8} item>
            <VideoPlayer />
-            <VideoList title='Played Videos' videos={playedVideos} />
+            <VideoList title='Played Videos' videos={playedVideos} search={playedVideos.length > 5}/>
         </Grid>
         <Grid xs={4} item>
           <VideoList title='Videos' videos={videos} search/>
