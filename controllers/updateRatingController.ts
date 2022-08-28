@@ -1,6 +1,7 @@
+import { Request, Response } from "express";
 import Video from "../models/video";
 
-const updateRatingController = async (req, res) => {
+const updateRatingController = async (req: Request, res: Response) => {
 	const { path } = req.body;
 	const { rating } = req.body;
 

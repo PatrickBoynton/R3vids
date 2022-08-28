@@ -1,8 +1,10 @@
 import videos from "../utils/getVideos";
 import Video from "../models/video";
+import { Request, Response } from "express";
+import IVideo from "../models/IVideo";
 
-const createVideoListController = (req, res) => {
-	videos.forEach((video) => Video.create({ path: video, hasPlayed: false }));
+const createVideoListController = (req: Request, res: Response) => {
+	videos.forEach((video: string): IVideo => Video.create({ path: video, hasPlayed: false }));
 
 	res.status(201).send({ message: "Videos added." });
 

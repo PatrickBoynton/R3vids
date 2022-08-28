@@ -1,6 +1,7 @@
+import { Request, Response } from "express";
 import Video from "../models/video";
 
-const detailsController = async (req, res) => {
+const detailsController = async (req: Request, res: Response) => {
 	const { id } = req.params;
 	const video = await Video.findByPk(id);
 
