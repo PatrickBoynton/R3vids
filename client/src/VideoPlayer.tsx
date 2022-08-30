@@ -5,8 +5,8 @@ const VideoPlayer = () => {
     const {singleVideo, randomVideo} = useStore();
     return (
         <>
-          <CardMedia component='video' src={singleVideo || randomVideo}  controls autoPlay muted/>
-          <Typography variant='h4' sx={{color: 'blue'}}>{(singleVideo || randomVideo).split("/Video/")[1]}</Typography>
+          <CardMedia component='video' src={singleVideo?.path || randomVideo?.path}  controls autoPlay muted/>
+          <Typography variant='h4' sx={{color: 'blue'}}>{(singleVideo?.path || randomVideo?.path)}</Typography>
           <InfoBar />
         </>
     );

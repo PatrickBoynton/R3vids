@@ -7,6 +7,7 @@ import {
 import useStore from "./utils/store";
 import { useState } from "react";
 import "./VideoList.css";
+import { Video } from "./models/video";
 
 
 const VideoList = ({title='', videos = [], playedVideos = [], search = false}) => {
@@ -21,10 +22,10 @@ const VideoList = ({title='', videos = [], playedVideos = [], search = false}) =
         <>
            <Typography variant='h2'>{title}</Typography> 
            {search ? <Input onChange={handleChange} /> : null}
-           {(videos || playedVideos).filter((video: string) => video.toLowerCase().includes(value)).map((video: string, index: number) =>
+           {(videos || playedVideos).filter((video: Video) => video.path.toLowerCase().includes(value)).map((video: Video, index: number) =>
           <>
-            <ListItemButton key={index} component="a" href="#">        
-              <ListItemText primary={video} onClick={(e: any) => getSingleVideo(e.target.innerHTML, index)}/> 
+            <ListItemButton key={video.id} component="a" href="#">        
+              <ListItemText primary={video.path} onClick={(e: any) => getSingleVideo(video, video.id)}/> 
             </ListItemButton>
         </>
        )}

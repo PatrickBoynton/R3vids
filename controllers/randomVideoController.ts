@@ -10,7 +10,7 @@ const randomVideoController = async (req: Request, res: Response) => {
 		benchmark: true,
 		logging: console.log,
 	});
-	res.send(randVid[0].path);
+	res.send(randVid[0]);
 
 	Video.update({ hasPlayed: true }, { where: { path: randVid[0].path } });
 };

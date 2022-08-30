@@ -7,11 +7,10 @@ const videoListController = async (req: Request, res: Response) => {
 	const videosFromDb: IVideo[] = await Video.findAll({
 		benchmark: true,
 		logging: console.log,
-		attributes: ["path"],
 	});
-	let vids: string[] = [];
+	let vids: IVideo[] = [];
 
-	videosFromDb.map((video: IVideo) => vids.push(video.path));
+	videosFromDb.map((video: IVideo) => vids.push(video));
 
 	if (vids.length > 0) {
 		res.send(vids);
