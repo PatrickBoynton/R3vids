@@ -8,6 +8,7 @@ import createVideoList from "./routes/createVideoList";
 import videoDetails from "./routes/videoDetails";
 import updateRating from "./routes/updateRating";
 import sortByType from "./routes/sortByType";
+import getRating from "./routes/getRating";
 import index from "./routes/index";
 import sequelize from "./utils/database";
 
@@ -26,6 +27,8 @@ app.use("/Video", express.static("D:\\Extras\\"));
 app.use(express.static(path.join(__dirname, "./client/build")));
 
 app.use("/Video", sortByType);
+
+app.use("/Video", getRating);
 
 app.use("/Video", updateRating);
 
