@@ -41,7 +41,7 @@ const useStore = create<VideoStore>((set) => ({
         }));
     },
 
-    getSingleVideo: (video: Video, index: number) => {
+    getSingleVideo: (video: Video) => {
         set((state: any) => ({
             singleVideo: video,
             playedVideos: [video, ...state.playedVideos],

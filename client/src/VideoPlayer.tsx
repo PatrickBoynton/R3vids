@@ -1,4 +1,4 @@
-import { CardMedia, Typography } from "@mui/material";
+import { CardMedia } from "@mui/material";
 import InfoBar from "./InfoBar";
 import useStore from "./utils/store";
 const VideoPlayer = () => {

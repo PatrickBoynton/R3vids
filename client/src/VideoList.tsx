@@ -11,7 +11,7 @@ import { Video } from "./models/video";
 
 
 const VideoList = ({title='', videos = [], playedVideos = [], search = false}) => {
-    const {getSingleVideo, videoTitle} = useStore();
+    const {getSingleVideo} = useStore();
     const [value, setValue] = useState("");
     
     const handleChange = (e: any) => {
