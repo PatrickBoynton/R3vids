@@ -6,8 +6,7 @@ const VideoPlayer = () => {
     return (
         <>
           <CardMedia component='video' src={singleVideo?.path || randomVideo?.path}  controls autoPlay muted/>
-          <Typography variant='h4' sx={{color: 'blue'}}>{(singleVideo?.path || randomVideo?.path)}</Typography>
-          <InfoBar />
+          <InfoBar title={singleVideo?.path || randomVideo?.path} />
         </>
     );
 };

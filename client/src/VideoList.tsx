@@ -11,21 +11,21 @@ import { Video } from "./models/video";
 
 
 const VideoList = ({title='', videos = [], playedVideos = [], search = false}) => {
-    const {getSingleVideo} = useStore();
+    const {getSingleVideo, videoTitle} = useStore();
     const [value, setValue] = useState("");
     
     const handleChange = (e: any) => {
       setValue(e.target.value);
     }
-    
+    console.log(videoTitle)
     return (
         <>
            <Typography variant='h2'>{title}</Typography> 
            {search ? <Input onChange={handleChange} /> : null}
            {(videos || playedVideos).filter((video: Video) => video.path.toLowerCase().includes(value)).map((video: Video, index: number) =>
           <>
-            <ListItemButton key={video.id} component="a" href="#">        
-              <ListItemText primary={video.path} onClick={(e: any) => getSingleVideo(video, video.id)}/> 
+            <ListItemButton key={video.id}>        
+              <ListItemText primary={video.path.split("/Video/")[1]} onClick={(e: any) => getSingleVideo(video, video.id)}/> 
             </ListItemButton>
         </>
        )}
