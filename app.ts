@@ -4,6 +4,7 @@ import cors from "cors";
 import path from "path";
 import videoList from "./routes/videoList";
 import randomVideo from "./routes/randomVideo";
+import updateVideoPath from "./routes/updateVideoPath";
 import createVideoList from "./routes/createVideoList";
 import videoDetails from "./routes/videoDetails";
 import updateRating from "./routes/updateRating";
@@ -35,6 +36,8 @@ app.use("/Video", updateRating);
 app.use("/Video", randomVideo);
 
 app.use("/Video", videoList);
+
+app.use("/Video", updateVideoPath);
 
 app.use("/Video", createVideoList);
 
