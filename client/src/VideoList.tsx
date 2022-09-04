@@ -17,7 +17,6 @@ const VideoList = ({title='', videos = [], playedVideos = [], search = false}) =
     const handleChange = (e: any) => {
       setValue(e.target.value);
     }
-    console.log(videoTitle)
     return (
         <>
            <Typography variant='h2'>{title}</Typography> 
