@@ -11,7 +11,8 @@ interface VideoStore {
     rating: number;
     getVideos: () => Promise<void>;
     getRandomVideo: () => Promise<void>;
-    getSingleVideo: (video: any, index: number) => void;
+    getRandomPlayedVideo: () => Promise<void>;
+    getSingleVideo: (video: Video, index: number) => void;
 }
 
 const { hostname } = window.location;
@@ -26,7 +27,6 @@ const useStore = create<VideoStore>((set) => ({
 
     getVideos: async () => {
         const response = await axios.get<string[]>(`${pathBase}list`);
-
         set(() => ({
             videos: response.data
         }));
@@ -34,10 +34,15 @@ const useStore = create<VideoStore>((set) => ({
 
     getRandomVideo: async () => {
         const response = await axios.get<Video>(`${pathBase}random`);
-        console.log(response.data);
         set((state: any) => ({
             randomVideo: response.data,
             playedVideos: [response.data, ...state.playedVideos],
+        }));
+    },
+
+    getRandomPlayedVideo: async () => {
+        set((state: any) => ({
+            randomVideo: state.playedVideos[Math.round(Math.random() * state.playedVideos.length)],
         }));
     },
 
