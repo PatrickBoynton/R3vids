@@ -1,4 +1,4 @@
-import {Grid} from "@mui/material";
+import {Grid, List} from "@mui/material";
 import useStore from "./utils/store";
 import VideoPlayer from "./VideoPlayer";
 import VideoList from "./VideoList";
@@ -20,10 +20,23 @@ const App = () => {
       <Grid container>
         <Grid xs={8} item>
            <VideoPlayer />
-            <VideoList title='Played Videos' videos={playedVideos} search={playedVideos.length > 5}/>
+           <List sx={{borderBottom: '2px solid #383879', maxHeight: '400px'}}>
+                <VideoList title='Played Videos'
+                           maxHeight='330px'  
+                           videos={playedVideos} 
+                           search={playedVideos.length > 5}
+                           button
+                           />
+           </List>
         </Grid>
         <Grid xs={4} item>
-          <VideoList title='Videos' videos={videos} search/>
+          <List sx={{border: '2px solid #383879'}}>
+              <VideoList title='Videos' 
+                         maxHeight='820px'
+                         videos={videos} 
+                         search
+                         />
+          </List>
         </Grid>
       </Grid>
     );

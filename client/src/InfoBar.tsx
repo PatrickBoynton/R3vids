@@ -10,7 +10,7 @@ const InfoBar = ({title}: Props) => {
     const { getRandomVideo } = useStore();
     const [value, setValue] = useState<number | null>();
 
-    return <div style={{border: '2px solid red'}}>
+    return <div style={{border: '2px solid #383879', textAlign: 'center', padding: '10px'}}>
                   <Typography variant='h4' sx={{color: '#fff', textAlign: 'center'}}>{title?.split("/Video/")[1]}</Typography>
         <Button onClick={getRandomVideo}>Random</Button>
         
