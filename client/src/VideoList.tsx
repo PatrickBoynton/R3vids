@@ -34,7 +34,6 @@ const VideoList = ({title='', videos = [], playedVideos = [], search = false, ma
         </>
        )}
        </List>
-       {button ? <Button onClick={() => getRandomPlayedVideo()}>Random Played Video</Button> : null}
       </>
     );
 };
