@@ -1,29 +1,27 @@
 import sequelize from "../utils/database";
-import { INTEGER, STRING, BOOLEAN } from "sequelize";
-
+import { DataTypes } from "sequelize";
+import Type from "./Type";
 const Video = sequelize.define("video", {
 	id: {
-		type: INTEGER,
+		type: DataTypes.INTEGER,
 		autoIncrement: true,
 		primaryKey: true,
 		allowNull: false,
 	},
 	path: {
-		type: STRING,
+		type: DataTypes.STRING,
 		allowNull: false,
 	},
 	rating: {
-		type: INTEGER,
-		allowNull: true,
-	},
-	type: {
-		type: STRING,
+		type: DataTypes.INTEGER,
 		allowNull: true,
 	},
 	hasPlayed: {
-		type: BOOLEAN,
+		type: DataTypes.BOOLEAN,
 		allowNull: false,
 	},
 });
+
+Type.hasMany(Video);
 
 export default Video;
