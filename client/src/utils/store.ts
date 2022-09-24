@@ -9,10 +9,16 @@ interface VideoStore {
     singleVideo: Video | undefined;
     pathBase: string;
     rating: number;
+    vidRef: any;
+    types: [];
     getVideos: () => Promise<void>;
     getRandomVideo: () => Promise<void>;
     getRandomPlayedVideo: () => Promise<void>;
     getSingleVideo: (video: Video, index: number) => void;
+    getPreviousSingleVideo: (id: number) => void;
+    getNextSingleVideo: (id: number) => void;
+    getTypes: () => void;
+    setRating: (value: number | null) => void;
 }
 
 const { hostname } = window.location;
@@ -24,6 +30,8 @@ const useStore = create<VideoStore>((set) => ({
     singleVideo: undefined,
     pathBase,
     rating: 0,
+    vidRef: null,
+    types: [],
 
     getVideos: async () => {
         const response = await axios.get<string[]>(`${pathBase}list`);
@@ -52,6 +60,49 @@ const useStore = create<VideoStore>((set) => ({
             playedVideos: [video, ...state.playedVideos],
         }));
     },
+
+    handleVideoPlayback: (vidRef: any) => {
+        vidRef.current.play();
+    },
+
+    getPreviousSingleVideo: (id: number) => {
+        set((state: any) => ({
+            randomVideo: state.videos[id-=1]   
+        }));
+        
+    },
+
+    getNextSingleVideo: (id: number) => {
+        set((state: any) => ({
+            singleVideo: state.videos[id+=1]
+        }));
+    },
+
+    getTypes: async () => {
+        const response = await axios.get(`${pathBase}types`);
+
+        set((state: any) => ({
+            types: response.data,
+        }));
+    },
+
+    setRating: async (value: number | null) => {
+        if(value !== null) {
+            set((state: any) => ({
+            rating: value,
+        }));
+
+    } else {
+        set((state: any) => ({
+            rating: 0
+        }))
+    }
+    await axios.put(`${pathBase}/rating/update`, {
+            data: {
+                rating: value
+            }
+        });
+    }
 }));
 
 export default useStore;
