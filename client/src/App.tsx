@@ -25,7 +25,6 @@ const App = () => {
                            maxHeight='330px'  
                            videos={playedVideos} 
                            search={playedVideos.length > 5}
-                           button
                            />
            </List>
         </Grid>
