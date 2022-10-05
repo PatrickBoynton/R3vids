@@ -20,6 +20,13 @@ const Video = sequelize.define("video", {
 		type: DataTypes.BOOLEAN,
 		allowNull: false,
 	},
+	videoPlayTime: {
+		type: DataTypes.TIME,
+		allowNull: false
+	},
+	videoType: {
+		type: DataTypes.ENUM("POV", "J", "K", "H", "SS", "SH", "HY", "B", "JOI", "O")
+	}
 });
 
 Type.hasMany(Video);
