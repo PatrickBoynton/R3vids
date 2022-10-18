@@ -1,7 +1,7 @@
 import {Grid, List} from "@mui/material";
 import useStore from "./utils/store";
-import VideoPlayer from "./VideoPlayer";
-import VideoList from "./VideoList";
+import VideoPlayer from "./components/VideoPlayer";
+import VideoList from "./components/VideoList";
 import "./App.css";
 import { useEffect } from "react";
 
