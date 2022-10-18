@@ -18,6 +18,7 @@ import Video from "./models/video";
 import getVideos from "./utils/getVideos";
 import displayPath from "./utils/displayPath";
 import IVideo from "./models/IVideo";
+import randomByPlayTime from "./routes/randomByPlayTime";
 
 dotenv.config();
 
@@ -40,6 +41,8 @@ app.use(express.json());
 app.use("/Video", express.static("D:\\Extras\\"));
 
 app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.use("/Video", randomByPlayTime);
 
 app.use("/Video", getTypes)
 
