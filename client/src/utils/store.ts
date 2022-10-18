@@ -19,6 +19,7 @@ interface VideoStore {
     getNextSingleVideo: (id: number) => void;
     getTypes: () => void;
     setRating: (value: number | null) => void;
+    getRatings: () => void;
 }
 
 const { hostname } = window.location;
@@ -102,6 +103,11 @@ const useStore = create<VideoStore>((set) => ({
                 rating: value
             }
         });
+    },
+
+    getRatings: async () => {
+        const response = await axios.get(`${pathBase}/rating`)
+        // console.log(response.data)
     }
 }));
 
