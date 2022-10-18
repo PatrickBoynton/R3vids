@@ -1,5 +1,5 @@
-import { Rating, Button, Typography, Select, MenuItem } from "@mui/material"
-import useStore from "./utils/store";
+import {Rating, Button, Typography, Select, MenuItem, Checkbox, FormControlLabel, FormGroup} from "@mui/material"
+import useStore from "../utils/store";
 import { useEffect, useState } from "react";
 
 interface Props {
@@ -8,15 +8,24 @@ interface Props {
 }
 
 const InfoBar = ({title, button}: Props) => {
-    const { getRandomVideo, getRandomPlayedVideo, getTypes, types, setRating} = useStore();
+    const { getRandomVideo, getRandomPlayedVideo, getTypes, types, setRating, getRatings, rating} = useStore();
     const [value, setValue] = useState<number | null>();
     
     useEffect(() => {
       getTypes()
     }, [getTypes])
 
+
+    useEffect(() => {
+        getRatings()
+    }, [getRatings])
+
     return <div style={{border: '2px solid #383879', textAlign: 'center', padding: '10px'}}>
         <Typography variant='h4' sx={{color: '#fff', textAlign: 'center'}}>{title?.split("/Video/")[1]}</Typography>
+        <FormGroup>
+            <FormControlLabel control={<Checkbox defaultChecked />} label="Exclude" />
+            <FormControlLabel control={<Checkbox />} label="Include" />
+        </FormGroup>
         <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
@@ -31,15 +40,15 @@ const InfoBar = ({title, button}: Props) => {
 
         <Rating 
         name="controlled-rating" 
-        value={value} 
+        value={rating}
         onChange={(event, newValue) => {
-          if(newValue! > 0) {
-            setRating(newValue);
-          setValue(newValue);
-          } else {
-            setRating(0);
-            setValue(0)
-          }
+          // if(newValue! >= 0) {
+          //   setRating(newValue);
+          // setValue(newValue);
+          // } else {
+          //   setRating(0);
+          //   setValue(0)
+          // }
         }}
       />
     </div>;

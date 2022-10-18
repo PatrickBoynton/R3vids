@@ -1,7 +1,7 @@
 import { CardMedia } from "@mui/material";
 import { useRef } from "react";
 import InfoBar from "./InfoBar";
-import useStore from "./utils/store";
+import useStore from "../utils/store";
 const VideoPlayer = () => {
     const {singleVideo, randomVideo} = useStore();
     const videoRef = useRef(null);
