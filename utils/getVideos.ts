@@ -1,7 +1,7 @@
 import directoryTree from "directory-tree";
 import displayPath from "./displayPath";
 
-const tree = directoryTree("D:\\Extras\\");
+const tree = directoryTree("F:\\Extras\\");
 
 const videos = tree.children
 	.filter((child) => child.name.endsWith(".mp4"))
